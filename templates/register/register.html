@@ -1,0 +1,92 @@
+<html lang="en">
+	<head>
+		<title>Create an account</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preload" href="/static/fonts/roboto-v18-latin-300.woff2" as="font" crossorigin />
+		<link href="static/css/normalize.css" rel="stylesheet">
+		<style type="text/css">
+			{{ template "common/login-common.css" }}
+
+			p.error {
+				font-size: 1em;
+				margin: .5em auto 0 auto;
+				color: #db4034;
+				display: none;
+			}
+
+			input {
+				display: block;
+			}
+
+			input[type="email"] {
+				width: 100%;
+				font-size: 1.5em;
+				text-align: center;
+				margin: 1em auto 0 auto;
+				padding: .25em;
+			}
+
+			input[type="submit"] {
+				padding: 0.4em 1em;
+				border: 1px solid #e3695f;
+				color: #fff;
+				background: #e3695f;
+				border-radius: 4px;
+				font-size: 1.5em;
+				text-align: center;
+				text-decoration: none;
+				white-space: nowrap;
+				cursor: pointer;
+				margin: .5em auto;
+			}
+
+			input[type="submit"]:disabled {
+				background: #eb928a;
+				border: 1px solid #eb928a;
+			}
+
+			@media (min-width: 500px) {
+				input[type="email"] {
+					width: 90%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="login">
+			<h1>Create an account</h1>
+			<p>Enter your email to create an account. You need to be able to receive emails at the address you enter.</p>
+			<p>We promise not to spam or sell your email. Check out our <a href="#" title="Privacy Policy">Privacy Policy</a> for more details.</p>
+			<form method="post" action="/register" novalidate>
+				<input type="email" name="email" id="email" placeholder="sebastian@stuffedfren.com" aria-label="Email Address" autofocus />
+				<p class="error invalid">Are you <em>sure</em> that email address is right? If you&rsquo;re <em>super positive</em>, go ahead and click the button again.</p>
+				<input type="submit" name="register" value="Sign up" />
+			</form>
+		</div>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded',function() {
+				enableSubmit()
+				document.querySelector('#email').oninput = enableSubmit
+				document.querySelector('form').onsubmit = function(event) {
+					return validateEmail()
+				}
+			},false);
+
+			function enableSubmit() {
+				document.querySelector('input[type="submit"]').disabled = document.querySelector('#email').value.trim() === ''
+				document.querySelector('.error.invalid').style.display = 'none'
+			}
+
+			function validateEmail() {
+				const match = /.+@.+\..+/.test(document.querySelector('#email').value.trim())
+				const warned = document.querySelector('.error.invalid').style.display === 'block'
+				if (!match) {
+					document.querySelector('.error.invalid').style.display = 'block'
+				} else {
+					document.querySelector('.error.invalid').style.display = 'none'
+				}
+				return match || warned
+			}
+		</script>
+	</body>
+</html>

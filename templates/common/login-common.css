@@ -1,0 +1,48 @@
+			@font-face {
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 300;
+				font-display: optional;
+				src: url('static/fonts/roboto-v18-latin-300.eot'); /* IE9 Compat Modes */
+				src: local('Roboto Light'), local('Roboto-Light'),
+				url('static/fonts/roboto-v18-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('static/fonts/roboto-v18-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+				url('static/fonts/roboto-v18-latin-300.woff') format('woff'), /* Modern Browsers */
+				url('static/fonts/roboto-v18-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+				url('static/fonts/roboto-v18-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+			}
+
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				width: 100vw;
+				background-color: #eff3fb;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			.login {
+				max-width: 75%;
+				padding: 20px 30px;
+				box-shadow: 2px 4px 6px 1px rgba(50, 50, 50, 0.14);
+				background-color: #fff;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			p {
+				font-size: 1.25em;
+				margin: .75em auto;
+				display: block;
+				text-align: center;
+			}
+
+			@media (min-width: 500px) {
+				.login {
+					max-width: 400px;
+					padding: 40px 60px;
+				}
+			}
