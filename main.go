@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"darlinggo.co/trout"
+	"darlinggo.co/trout/v2"
 )
 
 func main() {
