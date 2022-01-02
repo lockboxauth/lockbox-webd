@@ -1,5 +1,5 @@
 module impractical.co/auth/cmd/webd
 
-go 1.12
+go 1.17
 
-require darlinggo.co/trout/v2 v2.0.1
+require darlinggo.co/trout/v2 v2.1.1
